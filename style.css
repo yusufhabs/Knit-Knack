@@ -1,591 +1,677 @@
-/* General Styling */
+/* --- GLOBAL STYLING --- */
+/*
+ * Bagian ini berisi gaya dasar yang berlaku untuk seluruh halaman HTML.
+ * Ini termasuk pengaturan ulang margin/padding, font, warna latar belakang, dan warna teks umum.
+ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Menghilangkan margin default dari semua elemen */
+    padding: 0; /* Menghilangkan padding default dari semua elemen */
+    box-sizing: border-box; /* Mengatur model box CSS ke border-box untuk perhitungan ukuran yang lebih intuitif */
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: 'Poppins', sans-serif; /* Mengatur jenis font utama untuk seluruh teks */
+    background-color: #f5f5f5; /* Warna latar belakang utama halaman */
+    color: #333; /* Warna teks default untuk seluruh halaman */
 }
 
-/* Header Styling */
+/* --- HEADER STYLING --- */
+/*
+ * Gaya untuk elemen header, termasuk navigasi utama dan logo.
+ */
 header {
-    background: white;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: white; /* Latar belakang header putih */
+    padding: 1rem 2rem; /* Padding di sekitar konten header */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Bayangan untuk memberi efek kedalaman */
+    position: sticky; /* Membuat header tetap di bagian atas saat scroll */
+    top: 0; /* Menempatkan header di bagian paling atas */
+    z-index: 100; /* Memastikan header selalu di atas elemen lain saat tumpang tindih */
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex; /* Menggunakan Flexbox untuk tata letak item navigasi */
+    justify-content: space-between; /* Menempatkan logo dan link navigasi di ujung berlawanan */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+    max-width: 1200px; /* Lebar maksimum navigasi */
+    margin: 0 auto; /* Menempatkan navigasi di tengah halaman */
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
+    display: flex; /* Menggunakan Flexbox untuk logo dan emoji */
+    align-items: center; /* Menyelaraskan logo dan emoji secara vertikal */
+    font-size: 2rem; /* Ukuran font logo */
+    font-weight: bold; /* Ketebalan font logo */
+    color: #333; /* Warna teks logo */
 }
 
 .logo::before {
-    content: "🧶"; /* Ganti emoji logo jika diinginkan */
-    margin-right: 0.5rem;
-    font-size: 2rem;
+    content: "🧶"; /* Menambahkan emoji sebagai bagian dari logo menggunakan pseudo-element */
+    margin-right: 0.5rem; /* Jarak antara emoji dan teks logo */
+    font-size: 2rem; /* Ukuran font emoji */
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    align-items: center;
+    display: flex; /* Menggunakan Flexbox untuk link navigasi */
+    list-style: none; /* Menghilangkan bullet point dari daftar */
+    gap: 2rem; /* Jarak antar item navigasi */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #666;
-    font-weight: 500;
-    transition: color 0.3s;
+    text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+    color: #666; /* Warna teks tautan navigasi */
+    font-weight: 500; /* Ketebalan font tautan */
+    transition: color 0.3s; /* Transisi halus untuk perubahan warna saat hover */
 }
 
 .nav-links a:hover {
-    color: #000;
+    color: #000; /* Warna teks tautan saat di-hover */
 }
 
-/* Hero Section Styling */
+/* --- HERO SECTION STYLING (HALAMAN HOME) --- */
+/*
+ * Gaya untuk bagian hero (banner utama) di halaman beranda.
+ */
 .hero {
-    background-color: white;
-    height: 70vh;
-    position: relative;
-    display: flex;
-    justify-content: flex-end; /* Memindahkan konten ke kanan */
-    align-items: center;
-    color: #333;
-    padding: 0 5%;
-    overflow: hidden; /* Tetap pertahankan overflow hidden untuk hero container secara keseluruhan */
+    background-color: white; /* Latar belakang putih */
+    height: 70vh; /* Tinggi hero section relatif terhadap tinggi viewport */
+    position: relative; /* Diperlukan untuk penempatan absolut elemen anak */
+    display: flex; /* Menggunakan Flexbox untuk tata letak konten hero */
+    justify-content: flex-end; /* Memindahkan konten (teks) ke kanan */
+    align-items: center; /* Menyelaraskan konten secara vertikal di tengah */
+    color: #333; /* Warna teks hero */
+    padding: 0 5%; /* Padding horizontal */
+    overflow: hidden; /* Menyembunyikan konten yang meluap dari batas hero */
 }
 
-/* Styling untuk gambar FINAL.png yang sekarang menjadi elemen img */
+/* Styling untuk gambar hero (FINAL.png) */
 .hero-graphic {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    max-height: 90%;
-    width: auto;
-    object-fit: cover;
-    height: 100%;
+    position: absolute; /* Penempatan absolut di dalam hero section */
+    top: 50%; /* Menempatkan bagian atas gambar di tengah vertikal */
+    left: 0; /* Menempatkan gambar di sisi kiri */
+    transform: translateY(-50%); /* Menyesuaikan posisi gambar agar benar-benar di tengah vertikal */
+    max-height: 90%; /* Tinggi maksimum gambar */
+    width: auto; /* Lebar otomatis agar proporsi tetap terjaga */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    height: 100%; /* Tinggi gambar mengisi 100% dari parent */
 }
-
 
 .hero-content {
-    /* Menyesuaikan lebar dan posisi teks hero */
-    width: 45%; /* Maksimal setengah dari lebar hero, disisakan sedikit padding */
-    max-width: 500px; /* Batasi lebar maksimum agar tidak terlalu lebar */
-    text-align: right; /* Teks di kanan */
-    color: #333;
-    text-shadow: none;
-    /* Tambahkan atau pastikan properti ini tidak menyebabkan pemotongan */
-    word-wrap: break-word; /* Memungkinkan kata panjang untuk break */
-    /* overflow: visible; * Tidak perlu ditambahkan ke sini karena overflow dikontrol di parent */
+    width: 45%; /* Lebar konten teks hero */
+    max-width: 500px; /* Lebar maksimum untuk konten teks */
+    text-align: right; /* Teks rata kanan */
+    color: #333; /* Warna teks */
+    text-shadow: none; /* Menghilangkan bayangan teks jika ada */
+    word-wrap: break-word; /* Memungkinkan pemisahan kata panjang */
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #333;
-    line-height: 1.2; /* Beri sedikit ruang antar baris */
+    font-size: 3rem; /* Ukuran font judul hero */
+    margin-bottom: 1rem; /* Jarak bawah judul */
+    color: #333; /* Warna judul */
+    line-height: 1.2; /* Spasi antar baris */
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    color: #555;
+    font-size: 1.2rem; /* Ukuran font paragraf hero */
+    margin-bottom: 2rem; /* Jarak bawah paragraf */
+    opacity: 0.9; /* Sedikit transparan */
+    color: #555; /* Warna paragraf */
 }
 
-/* Button Styling */
+/* --- BUTTON STYLING --- */
+/*
+ * Gaya umum untuk tombol-tombol di seluruh situs.
+ */
 .btn {
-    background: #000;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-    text-decoration: none;
-    display: inline-block;
+    background: #000; /* Warna latar belakang tombol hitam */
+    color: white; /* Warna teks tombol putih */
+    padding: 1rem 2rem; /* Padding di dalam tombol */
+    border: none; /* Menghilangkan border */
+    border-radius: 5px; /* Sudut tombol membulat */
+    font-size: 1rem; /* Ukuran font tombol */
+    font-weight: bold; /* Ketebalan font tombol */
+    cursor: pointer; /* Kursor berubah menjadi pointer saat di-hover */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Transisi untuk efek hover */
+    text-decoration: none; /* Menghilangkan garis bawah jika tombol adalah tautan */
+    display: inline-block; /* Memastikan tombol berfungsi sebagai blok tetapi mengikuti alur teks */
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    background-color: #555;
+    transform: translateY(-2px); /* Tombol sedikit terangkat saat di-hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Bayangan lebih besar saat di-hover */
+    background-color: #555; /* Warna latar belakang berubah saat di-hover */
 }
 
-/* Container Styling */
+/* --- CONTAINER STYLING --- */
+/*
+ * Gaya untuk elemen container yang membatasi lebar konten.
+ */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+    max-width: 1200px; /* Lebar maksimum container */
+    margin: 0 auto; /* Menempatkan container di tengah halaman */
+    padding: 2rem; /* Padding di dalam container */
 }
 
-/* Page Header Styling */
+/* --- PAGE HEADER STYLING --- */
+/*
+ * Gaya untuk judul setiap halaman (misalnya "Semua Produk", "Tentang Kami").
+ */
 .page-header {
-    text-align: center;
-    margin: 2rem 0;
+    text-align: center; /* Teks rata tengah */
+    margin: 2rem 0; /* Margin atas dan bawah */
 }
 
 .page-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 2.5rem; /* Ukuran font judul halaman */
+    margin-bottom: 1rem; /* Jarak bawah judul */
+    color: #333; /* Warna judul */
 }
 
-/* Filter Bar Styling */
+/* --- FILTER BAR STYLING (HALAMAN PRODUK) --- */
+/*
+ * Gaya untuk bar filter di halaman produk.
+ */
 .filter-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 0;
-    padding: 1rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex; /* Menggunakan Flexbox untuk filter info dan dropdown */
+    justify-content: space-between; /* Memisahkan info dan dropdown */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    margin: 2rem 0; /* Margin atas dan bawah */
+    padding: 1rem; /* Padding di dalam bar filter */
+    background: white; /* Latar belakang putih */
+    border-radius: 10px; /* Sudut membulat */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Bayangan */
 }
 
 .filter-info {
-    color: #666;
+    color: #666; /* Warna teks info filter */
 }
 
 .sort-dropdown {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: white;
-    cursor: pointer;
-    font-size: 1rem;
+    padding: 0.5rem 1rem; /* Padding di dalam dropdown */
+    border: 1px solid #ddd; /* Border dropdown */
+    border-radius: 5px; /* Sudut dropdown membulat */
+    background: white; /* Latar belakang dropdown putih */
+    cursor: pointer; /* Kursor berubah menjadi pointer */
+    font-size: 1rem; /* Ukuran font dropdown */
 }
 
-/* Products Grid Styling */
+/* --- PRODUCTS GRID STYLING (HALAMAN PRODUK) --- */
+/*
+ * Gaya untuk tata letak grid kartu produk.
+ */
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 2rem 0;
+    display: grid; /* Menggunakan Grid untuk tata letak produk */
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom dengan lebar yang sama */
+    gap: 2rem; /* Jarak antar kartu produk */
+    margin: 2rem 0; /* Margin atas dan bawah */
 }
 
 .product-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height: auto; 
+    background: white; /* Latar belakang kartu produk putih */
+    border-radius: 15px; /* Sudut kartu membulat */
+    overflow: hidden; /* Menyembunyikan konten yang meluap */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Bayangan kartu */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transisi halus untuk efek hover */
+    position: relative; /* Diperlukan untuk posisi absolut badge sale */
+    cursor: pointer; /* Kursor berubah menjadi pointer */
+    display: flex; /* Menggunakan Flexbox untuk tata letak internal kartu */
+    flex-direction: column; /* Konten di dalam kartu ditumpuk vertikal */
+    height: auto;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(-5px); /* Kartu sedikit terangkat saat di-hover */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Bayangan lebih besar saat di-hover */
 }
 
 .sale-badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: #ff4757;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    z-index: 10;
+    position: absolute; /* Posisi absolut di dalam kartu produk */
+    top: 1rem; /* Jarak dari atas */
+    left: 1rem; /* Jarak dari kiri */
+    background: #ff4757; /* Warna latar belakang badge merah */
+    color: white; /* Warna teks badge putih */
+    padding: 0.3rem 0.8rem; /* Padding di dalam badge */
+    border-radius: 20px; /* Sudut badge membulat penuh */
+    font-size: 0.8rem; /* Ukuran font badge */
+    font-weight: bold; /* Ketebalan font badge */
+    z-index: 10; /* Memastikan badge di atas gambar produk */
 }
 
 .product-image {
-    width: 100%;
-    padding-bottom: 100%;
-    position: relative;
-    overflow: hidden;
-    background: #eee;
+    width: 100%; /* Lebar gambar 100% dari kartu */
+    padding-bottom: 100%; /* Membuat kotak gambar menjadi aspek rasio 1:1 */
+    position: relative; /* Diperlukan untuk penempatan absolut gambar di dalamnya */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang meluap */
+    background: #eee; /* Warna latar belakang placeholder gambar */
 }
 
 .product-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    position: absolute; /* Posisi absolut di dalam kotak gambar */
+    top: 0; /* Dari atas */
+    left: 0; /* Dari kiri */
+    width: 100%; /* Gambar mengisi 100% lebar kotak */
+    height: 100%; /* Gambar mengisi 100% tinggi kotak */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    display: block; /* Menghilangkan ruang kosong di bawah gambar */
 }
 
 .product-info {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 1.5rem; /* Padding di sekitar informasi produk */
+    flex-grow: 1; /* Memungkinkan info produk mengisi ruang yang tersedia */
+    display: flex; /* Menggunakan Flexbox untuk tata letak internal info */
+    flex-direction: column; /* Konten di dalam kartu ditumpuk vertikal */
+    justify-content: space-between; /* Menyelaraskan konten secara vertikal */
 }
 
 .product-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 1.1rem; /* Ukuran font judul produk */
+    font-weight: bold; /* Ketebalan font judul */
+    margin-bottom: 1rem; /* Jarak bawah judul */
+    color: #333; /* Warna judul produk */
 }
 
 .product-price {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: auto;
+    /* display: flex; REMOVED: No longer needed as only one price is shown */
+    /* align-items: center; REMOVED: No longer needed as only one price is shown */
+    /* gap: 0.5rem; REMOVED: No longer needed as only one price is shown */
+    margin-top: auto; /* Mendorong harga ke bagian bawah kartu */
 }
 
 .original-price {
-    color: #999;
-    text-decoration: line-through;
-    font-size: 0.9rem;
+    /* REMOVED: This class is no longer needed as original price is removed */
+    display: none; /* Hide the original price */
 }
 
 .current-price {
-    color: #ff4757;
-    font-size: 1.2rem;
-    font-weight: bold;
+    color: #ff4757; /* Warna teks harga saat ini (merah) */
+    font-size: 1.2rem; /* Ukuran font harga saat ini */
+    font-weight: bold; /* Ketebalan font harga saat ini */
 }
 
-/* Product Detail Page Styling */
+/* --- PRODUCT DETAIL PAGE STYLING --- */
+/*
+ * Gaya untuk halaman yang menampilkan detail satu produk.
+ */
 .product-detail {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin: 2rem 0;
-    align-items: flex-start;
+    display: grid; /* Menggunakan Grid untuk tata letak gambar dan info detail */
+    grid-template-columns: 1fr 1fr; /* Dua kolom dengan lebar yang sama */
+    gap: 3rem; /* Jarak antar kolom */
+    margin: 2rem 0; /* Margin atas dan bawah */
+    align-items: flex-start; /* Menyelaraskan item di bagian atas */
 }
 
 .product-detail-image {
-    background: #eee;
-    border-radius: 15px;
-    width: 100%;
-    padding-bottom: 100%;
-    position: relative;
-    overflow: hidden;
+    background: #eee; /* Latar belakang placeholder gambar */
+    border-radius: 15px; /* Sudut membulat */
+    width: 100%; /* Lebar gambar 100% */
+    padding-bottom: 100%; /* Membuat kotak gambar menjadi aspek rasio 1:1 */
+    position: relative; /* Diperlukan untuk penempatan absolut gambar di dalamnya */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang meluap */
 }
 
 .product-detail-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    position: absolute; /* Posisi absolut di dalam kotak gambar */
+    top: 0; /* Dari atas */
+    left: 0; /* Dari kiri */
+    width: 100%; /* Gambar mengisi 100% lebar kotak */
+    height: 100%; /* Gambar mengisi 100% tinggi kotak */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
 }
 
 .product-detail-info {
-    padding: 2rem 0;
+    padding: 2rem 0; /* Padding vertikal untuk info detail produk */
 }
 
 .product-detail-info h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 2rem; /* Ukuran font judul detail produk */
+    margin-bottom: 1rem; /* Jarak bawah judul */
+    color: #333; /* Warna judul */
 }
 
 .product-detail-info .price {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    /* display: flex; REMOVED: No longer needed as only one price is shown */
+    /* align-items: center; REMOVED: No longer needed as only one price is shown */
+    /* gap: 1rem; REMOVED: No longer needed as only one price is shown */
+    margin: 1.5rem 0; /* Margin atas dan bawah harga */
 }
 
-.whatsapp-btn {
-    background: #25D366;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.3s;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.whatsapp-btn:hover {
-    background: #1ebe5a;
-}
-
-.whatsapp-btn::before {
-    content: "📱 ";
-    margin-right: 0.5rem;
-}
-
-.product-meta {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-    color: #666;
-}
-
-/* About Page Styles */
-.about-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin: 3rem 0;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    align-items: center;
-}
-
-.about-image {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-image::before {
-    content: "🧶";
-    font-size: 6rem;
-    opacity: 0.3;
-    position: absolute;
-}
-
-.about-image-content {
-    font-size: 4rem;
-    z-index: 5;
-}
-
-.about-content {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.about-content h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
-.about-content p {
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.about-content ul {
-    color: #666;
-    margin-left: 1.5rem;
-    line-height: 1.8;
-}
-
-.about-content li {
-    margin-bottom: 0.5rem;
-}
-
-/* Contact Page Styles */
-.contact-section {
-    background: white;
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 3rem 0;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.contact-item {
-    text-align: center;
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-}
-
-.contact-item .icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.contact-item h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-}
-
-.contact-item p {
-    color: #666;
-}
-
-/* Current Page Visibility */
-.current-page {
+.product-detail-info .original-price-detail {
+    /* REMOVED: This class is no longer needed as original price is removed */
     display: none;
 }
 
-.current-page.active {
-    display: block;
+.product-detail-info .current-price-detail {
+    color: #ff4757; /* Warna teks harga saat ini (merah) */
+    font-size: 1.8rem; /* Ukuran font harga saat ini */
+    font-weight: bold; /* Ketebalan font harga saat ini */
 }
 
-/* Responsive Design (Media Queries) */
-@media (max-width: 992px) { /* Mengatur breakpoint di 992px (typical laptop/large tablet) */
+.whatsapp-btn {
+    background: #25D366; /* Warna latar belakang tombol WhatsApp (hijau) */
+    color: white; /* Warna teks tombol putih */
+    padding: 1rem 2rem; /* Padding di dalam tombol */
+    border: none; /* Menghilangkan border */
+    border-radius: 10px; /* Sudut tombol membulat */
+    font-size: 1.1rem; /* Ukuran font tombol */
+    font-weight: bold; /* Ketebalan font tombol */
+    cursor: pointer; /* Kursor berubah menjadi pointer */
+    width: 100%; /* Tombol mengisi 100% lebar yang tersedia */
+    transition: background 0.3s; /* Transisi halus untuk perubahan latar belakang saat hover */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    display: inline-block; /* Memastikan tombol berfungsi sebagai blok */
+    text-align: center; /* Teks rata tengah */
+    margin-top: 1rem; /* Jarak atas tombol */
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5a; /* Warna latar belakang tombol WhatsApp saat di-hover */
+}
+
+/* .whatsapp-btn::before {
+    content: "📱 "; /* Menambahkan emoji ponsel di depan teks tombol */
+/*    margin-right: 0.5rem;  Jarak antara emoji dan teks */
+/* } */
+
+.product-meta {
+    margin-top: 2rem; /* Jarak atas metadata produk */
+    padding-top: 2rem; /* Padding atas metadata */
+    border-top: 1px solid #eee; /* Garis pembatas di atas metadata */
+    color: #666; /* Warna teks metadata */
+}
+
+---
+
+/* --- ABOUT PAGE STYLES --- */
+/*
+ * Gaya untuk halaman "Tentang Knit Knack".
+ * Perubahan fokus di sini adalah membuat bagian ini lebih lebar (persegi panjang)
+ * dan memastikan teks di dalamnya mengalir dengan baik dengan penyesuaian grid dan lebar.
+ */
+.about-section {
+    display: grid;
+    /* MENGUBAH: Mengatur rasio kolom agar kolom teks lebih lebar. */
+    /* Sekarang kolom gambar (kiri) akan mengambil 1 bagian, dan kolom konten (kanan) 1.5 bagian. */
+    grid-template-columns: 1fr 1.5fr; /* Contoh: Gambar 40%, Teks 60% */
+    
+    gap: 3rem; /* Jarak antar kolom gambar dan teks */
+    margin: 3rem auto; /* Menempatkan seluruh section di tengah halaman */
+    
+    /* MENGUBAH: Menambah lebar maksimum untuk keseluruhan section ini. */
+    /* Ini akan membuat seluruh kotak "Tentang Kami" lebih persegi panjang. */
+    max-width: 1300px; /* Tingkatkan lebar maksimum about section (sesuaikan jika perlu) */
+    
+    background: white; /* Latar belakang putih */
+    border-radius: 15px; /* Sudut membulat */
+    overflow: hidden; /* Menyembunyikan konten yang meluap */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Bayangan */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+}
+
+.about-image {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* Latar belakang gradien untuk gambar tentang */
+    /* MENGUBAH: Mengurangi tinggi gambar agar lebih proporsional dengan lebar yang bertambah */
+    height: 300px; /* Tinggi gambar tentang (disesuaikan dari 400px) */
+    
+    display: flex; /* Menggunakan Flexbox untuk konten internal gambar */
+    align-items: center; /* Menyelaraskan konten di tengah vertikal */
+    justify-content: center; /* Menyelaraskan konten di tengah horizontal */
+    position: relative; /* Diperlukan untuk pseudo-element */
+    overflow: hidden; /* Menyembunyikan konten yang meluap */
+}
+
+.about-image::before {
+    content: "🧶"; /* Menambahkan emoji di latar belakang gambar tentang */
+    font-size: 6rem; /* Ukuran font emoji */
+    opacity: 0.3; /* Sedikit transparan */
+    position: absolute; /* Posisi absolut */
+}
+
+.about-image-content {
+    font-size: 4rem; /* Ukuran font konten gambar (emoji tambahan) */
+    z-index: 5; /* Memastikan konten di atas pseudo-element */
+}
+
+.about-content {
+    padding: 3rem; /* Padding di sekitar konten teks tentang */
+    display: flex; /* Menggunakan Flexbox untuk tata letak internal konten */
+    flex-direction: column; /* Konten ditumpuk vertikal */
+    justify-content: center; /* Menyelaraskan konten secara vertikal di tengah */
+
+    /* PENTING: Memastikan teks memanfaatkan lebar kolom yang diberikan oleh grid. */
+    /* Jika ada `max-width` yang lebih kecil di sini, hapus atau tingkatkan nilainya. */
+    width: 100%;
+}
+
+.about-content h3 {
+    font-size: 2rem; /* Ukuran font judul konten tentang */
+    margin-bottom: 1.5rem; /* Jarak bawah judul */
+    color: #333; /* Warna judul */
+}
+
+.about-content p {
+    color: #666; /* Warna teks paragraf tentang */
+    line-height: 1.8; /* Spasi antar baris */
+    margin-bottom: 1.5rem; /* Jarak bawah paragraf */
+    font-size: 1.1rem; /* Ukuran font paragraf */
+}
+
+.about-content ul {
+    color: #666; /* Warna teks daftar */
+    margin-left: 1.5rem; /* Indentasi daftar */
+    line-height: 1.8; /* Spasi antar baris daftar */
+}
+
+.about-content li {
+    margin-bottom: 0.5rem; /* Jarak bawah setiap item daftar */
+}
+
+---
+
+/* --- CONTACT PAGE STYLES --- */
+/*
+ * Gaya untuk halaman "Hubungi Kami".
+ */
+.contact-section {
+    background: white; /* Latar belakang putih */
+    border-radius: 15px; /* Sudut membulat */
+    padding: 3rem; /* Padding di dalam bagian kontak */
+    margin: 3rem 0; /* Margin atas dan bawah */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Bayangan */
+}
+
+.contact-info {
+    display: grid; /* Menggunakan Grid untuk tata letak item kontak */
+    grid-template-columns: repeat(4, 1fr); /* Empat kolom dengan lebar yang sama */
+    gap: 2rem; /* Jarak antar item kontak */
+    margin: 2rem 0; /* Margin atas dan bawah */
+}
+
+.contact-item {
+    text-align: center; /* Teks rata tengah */
+    padding: 2rem; /* Padding di dalam item kontak */
+    background: #f8f9fa; /* Latar belakang item kontak */
+    border-radius: 10px; /* Sudut item kontak membulat */
+}
+
+.contact-item .icon {
+    font-size: 3rem; /* Ukuran font ikon */
+    margin-bottom: 1rem; /* Jarak bawah ikon */
+}
+
+.contact-item h4 {
+    font-size: 1.2rem; /* Ukuran font judul item kontak */
+    margin-bottom: 0.5rem; /* Jarak bawah judul */
+    color: #333; /* Warna judul */
+}
+
+.contact-item p {
+    color: #666; /* Warna teks detail kontak */
+}
+
+/* --- CURRENT PAGE VISIBILITY --- */
+/*
+ * Gaya untuk mengontrol tampilan halaman tunggal (single-page application).
+ */
+.current-page {
+    display: none; /* Semua halaman disembunyikan secara default */
+}
+
+.current-page.active {
+    display: block; /* Halaman dengan kelas 'active' akan ditampilkan */
+}
+
+---
+
+/* --- RESPONSIVE DESIGN (MEDIA QUERIES) --- */
+/*
+ * Bagian ini mengatur gaya untuk tampilan di berbagai ukuran layar (responsive).
+ */
+
+/* Untuk layar sedang (tablet besar, laptop kecil) */
+@media (max-width: 992px) { /* Breakpoint di 992px */
     .products-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* Mengubah grid produk menjadi 3 kolom */
     }
 
     .hero-graphic {
-        max-height: 70%; 
-        left: 0;
+        max-height: 70%; /* Mengurangi tinggi maksimum gambar hero */
+        left: 0; /* Memastikan gambar tetap di kiri */
     }
 
     .hero-content {
-        width: 60%; /* Beri sedikit lebih banyak ruang di layar menengah */
-        max-width: 600px;
+        width: 60%; /* Meningkatkan lebar konten hero */
+        max-width: 600px; /* Batasi lebar maksimum */
     }
 
     .hero-content h1 {
-        font-size: 2.5rem; /* Menurunkan ukuran font untuk teks hero di layar menengah */
+        font-size: 2.5rem; /* Mengurangi ukuran font judul hero */
     }
 
     .contact-info {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Mengubah grid kontak menjadi 2 kolom */
+    }
+
+    /* MENGUBAH: Penyesuaian Media Query untuk About Section di layar sedang */
+    .about-section {
+        grid-template-columns: 1fr 1.5fr; /* Pertahankan tata letak grid 2 kolom dengan rasio yang disesuaikan */
+        max-width: 90%; /* Sesuaikan lebar maksimum untuk layar ini */
+        padding: 1.5rem; /* Sesuaikan padding */
+    }
+    .about-image {
+        height: 250px; /* Kurangi tinggi gambar di tablet */
+    }
+    .about-content {
+        padding: 2rem; /* Sesuaikan padding konten */
     }
 }
 
+/* Untuk layar tablet dan mobile */
 @media (max-width: 768px) {
     /* Header */
     header {
-        padding: 0.8rem 1rem;
+        padding: 0.8rem 1rem; /* Mengurangi padding header */
     }
 
     nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+        flex-direction: column; /* Mengubah tata letak navigasi menjadi kolom */
+        align-items: flex-start; /* Menyelaraskan item ke kiri */
+        gap: 0.5rem; /* Mengurangi jarak antar item navigasi */
     }
 
     .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 0.8rem;
-        margin-top: 0.5rem;
+        flex-direction: column; /* Mengubah link navigasi menjadi kolom */
+        width: 100%; /* Memastikan link mengisi seluruh lebar */
+        gap: 0.8rem; /* Mengurangi jarak antar link */
+        margin-top: 0.5rem; /* Jarak atas daftar link */
     }
     
-    /* Hero */
+    /* Hero Section */
     .hero {
-        height: 50vh;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1rem;
+        height: 50vh; /* Mengurangi tinggi hero section */
+        flex-direction: column; /* Mengubah tata letak hero menjadi kolom */
+        justify-content: center; /* Menyelaraskan konten di tengah */
+        padding: 1rem; /* Mengurangi padding hero */
     }
 
     .hero-graphic {
-        position: static;
-        transform: none;
-        max-height: 180px;
-        margin-bottom: 1rem;
-        width: auto;
+        position: static; /* Menghilangkan posisi absolut */
+        transform: none; /* Menghilangkan transform */
+        max-height: 180px; /* Mengurangi tinggi maksimum gambar hero */
+        margin-bottom: 1rem; /* Jarak bawah gambar */
+        width: auto; /* Lebar otomatis */
     }
 
     .hero-content {
         width: 90%; /* Memberikan lebih banyak lebar di mobile */
-        text-align: center;
-        padding: 0;
-        max-width: none;
+        text-align: center; /* Teks rata tengah */
+        padding: 0; /* Menghilangkan padding */
+        max-width: none; /* Menghilangkan batasan lebar maksimum */
     }
 
     .hero-content h1 {
-        font-size: 1.8rem; /* Lebih kecil lagi di mobile */
-        line-height: 1.3; /* Sedikit lebih tinggi untuk keterbacaan */
+        font-size: 1.8rem; /* Mengurangi ukuran font judul hero */
+        line-height: 1.3; /* Meningkatkan spasi antar baris */
     }
     
     .hero-content p {
-        font-size: 0.9rem; /* Lebih kecil di mobile */
+        font-size: 0.9rem; /* Mengurangi ukuran font paragraf hero */
     }
 
     /* Products Grid */
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr); /* Mengubah grid produk menjadi 2 kolom */
+        gap: 1.5rem; /* Mengurangi jarak antar kartu */
     }
     
     /* Product Detail */
     .product-detail {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1rem;
+        grid-template-columns: 1fr; /* Mengubah detail produk menjadi 1 kolom */
+        gap: 1.5rem; /* Mengurangi jarak */
+        padding: 1rem; /* Mengurangi padding */
     }
 
     .product-detail-image {
-        height: 300px;
-        padding-bottom: 100%;
+        height: 300px; /* Mengurangi tinggi gambar detail produk */
+        padding-bottom: 100%; /* Memastikan aspek rasio tetap */
     }
 
     .product-detail-info {
-        padding: 0;
+        padding: 0; /* Menghilangkan padding info detail produk */
     }
 
     /* About Section */
+    /* MENGUBAH: Penyesuaian Media Query untuk About Section di mobile */
     .about-section {
-        grid-template-columns: 1fr;
-        gap: 0;
+        grid-template-columns: 1fr; /* Kembali ke 1 kolom untuk tampilan mobile agar tidak terlalu kecil */
+        gap: 0; /* Menghilangkan jarak antar kolom karena sudah 1 kolom */
+        max-width: 90%; /* Sesuaikan lebar maksimum untuk mobile */
     }
 
     .about-image {
-        height: 250px;
+        height: 200px; /* Tinggi gambar untuk mobile */
     }
 
     .about-content {
-        padding: 2rem;
+        padding: 1.5rem; /* Sesuaikan padding konten untuk mobile */
     }
     
     /* Filter Bar */
     .filter-bar {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0.8rem;
+        flex-direction: column; /* Mengubah filter bar menjadi kolom */
+        gap: 1rem; /* Mengurangi jarak */
+        padding: 0.8rem; /* Mengurangi padding */
     }
 
     .sort-dropdown {
-        width: 100%;
+        width: 100%; /* Membuat dropdown mengisi seluruh lebar */
     }
 }
 
 /* Media Query untuk Mobile (Layar Sangat Kecil) */
 @media (max-width: 480px) {
     .container {
-        padding: 1rem;
+        padding: 1rem; /* Mengurangi padding container */
     }
 
     .hero-graphic {
@@ -613,8 +699,8 @@ nav {
     }
 
     .products-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: 1fr; /* Mengubah grid produk menjadi 1 kolom */
+        gap: 1rem; /* Mengurangi jarak antar kartu */
     }
 
     .product-detail-image {
@@ -622,11 +708,23 @@ nav {
     }
     
     .contact-info {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: 1fr; /* Mengubah info kontak menjadi 1 kolom */
+        gap: 1.5rem; /* Mengurangi jarak */
     }
 
     .contact-section {
-        padding: 1.5rem;
+        padding: 1.5rem; /* Mengurangi padding bagian kontak */
+    }
+
+    /* MENGUBAH: Penyesuaian Media Query untuk About Section di layar sangat kecil */
+    .about-section {
+        max-width: 95%; /* Mungkin sedikit lebih lebar di layar yang sangat kecil */
+    }
+    .about-image {
+        height: 150px; /* Sesuaikan lagi tinggi gambar untuk ponsel kecil */
+    }
+    .about-content {
+        padding: 1rem; /* Padding lebih kecil untuk ponsel kecil */
+        font-size: 0.95rem; /* Opsional: sedikit kecilkan font paragraf */
     }
 }
