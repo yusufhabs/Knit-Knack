@@ -166,7 +166,7 @@
                         <span id="detail-current-price" class="current-price-detail"></span>
                     </div>
                     <p id="detail-product-description"></p>
-                    <button class="whatsapp-btn" onclick="contactViaWhatsApp()">Chat via WhatsApp</button>
+                    <button class="whatsapp-btn" onclick="contactViaWhatsApp()">Chat WhatsApp</button>
                     <div class="product-meta">
                         <p>Kategori: <span id="detail-product-category"></span></p>
                     </div>
@@ -325,7 +325,7 @@
 
         function contactViaWhatsApp() {
             const productName = document.getElementById('detail-product-title').innerText;
-            const phoneNumber = '628123456789'; // Ganti dengan nomor WhatsApp Anda
+            const phoneNumber = '+62877-6285-7469'; // Ganti dengan nomor WhatsApp Anda
             const message = `Halo, saya tertarik dengan produk *${productName}* yang Anda jual di Knit Knack. Bisakah saya mendapatkan informasi lebih lanjut?`;
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
